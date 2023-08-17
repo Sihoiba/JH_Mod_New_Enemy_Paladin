@@ -25,8 +25,8 @@ register_blueprint "human_paladin_machete"
 		experience_value = 30,
 		accuracy         = 10,
 		health           = 40,
+		damage_mult      = 0.75,
 		resist = {
-			melee = 75,
 			slash = 75,			
 		},
 	},
@@ -65,8 +65,8 @@ register_blueprint "human_paladin_sword"
 		experience_value = 30,
 		accuracy         = 10,
 		health           = 45,
+		damage_mult      = 0.75,
 		resist = {
-			melee = 75,
 			slash = 75,			
 		},
 	},
@@ -105,8 +105,8 @@ register_blueprint "human_paladin_chainsaw"
 		experience_value = 30,
 		accuracy         = 10,
 		health           = 50,
+		damage_mult      = 0.75,
 		resist = {
-			melee = 75,
 			slash = 75,			
 		},
 	},
