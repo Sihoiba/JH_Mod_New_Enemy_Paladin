@@ -3,6 +3,84 @@ nova.require "data/lua/jh/gfx/entities/human"
 nova.require "data/lua/jh/gfx/items/riot_shield"
 nova.require "data/lua/jh/gfx/weapons/melee"
 
+register_gfx_blueprint "paladin_shield"
+{
+	equip = {
+		target    = "RigLHandWeaponMount",
+	},
+	tag   = "shield",
+	{
+		render = {
+			mesh        = "data/model/riot_shield_01.nmd:riot_shield_01",
+			material    = "security_shield",
+		},
+		tag   = "shield",
+		scene = {
+			orientation = vec4(1,0,0,-4.37114e-08),			
+		},		
+	},
+	{
+		tag = "glow",
+		scene = {},
+		light = {
+			color       = vec4(0.5,1.0,2.0,1.2),
+			range       = 1.0,
+		},
+	}
+}
+
+register_gfx_blueprint "paladin_shield2"
+{
+	equip = {
+		target    = "RigLHandWeaponMount",
+	},
+	tag   = "shield",
+	{
+		render = {
+			mesh        = "data/model/riot_shield_01.nmd:riot_shield_01",
+			material    = "security_shield",
+		},
+		tag   = "shield",
+		scene = {
+			orientation = vec4(1,0,0,-4.37114e-08),
+		},
+	},
+	{
+		tag = "glow",
+		scene = {},
+		light = {
+			color       = vec4(0.5,1.0,2.0,1.4),
+			range       = 1.0,
+		},
+	}	
+}
+
+register_gfx_blueprint "paladin_shield3"
+{
+	equip = {
+		target    = "RigLHandWeaponMount",
+	},
+	tag   = "shield",
+	{
+		render = {
+			mesh        = "data/model/riot_shield_01.nmd:riot_shield_01",
+			material    = "security_shield",
+		},
+		tag   = "shield",
+		scene = {
+			orientation = vec4(1,0,0,-4.37114e-08),
+		},	
+	},
+	{
+		tag = "glow",
+		scene = {},
+		light = {
+			color       = vec4(0.5,1.0,2.0,1.6),
+			range       = 1.0,
+		},
+	}	
+}
+
 register_gfx_blueprint "animator_human_paladin_machete"
 {
 	pose_animator   = "data/model/human_male_poses.nmd",
