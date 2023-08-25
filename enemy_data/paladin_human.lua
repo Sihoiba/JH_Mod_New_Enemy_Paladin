@@ -140,8 +140,8 @@ register_blueprint "human_paladin_machete"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		-- { keywords = { "test" }, weight = 150 },
-		{ { "guard2", "guard2", "human_paladin_machete" }, keywords = { "test" }, weight = 150 },
+		{ keywords = { "test" }, weight = 150 },
+		-- { { "guard2", "guard2", "human_paladin_machete" }, keywords = { "test" }, weight = 150 },
 		{ keywords = { "europa", "former", "former2", "civilian" }, weight = 150, },
 		{ { "guard2", "guard2", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian", "pack" }, weight = 150, dmin = 10 },
 	},
@@ -151,10 +151,14 @@ register_blueprint "human_paladin_machete"
 	},
 	callbacks = {
 		on_create = [=[
-			function( self, level )
+			function( self, level, tier )
 				self:attach( "paladin_shield" )
 				self.data.shield_buff = self:attach( "paladin_shield_protection" )
-				self:attach( "machete" )
+				if tier > 1 then
+					make_weapon_entry( self, { "adv_machete", tier = tier - 1 } )
+				else
+					self:attach( "machete" )
+				end	
 				if level.level_info.low_light then
 					self:attach( "npc_flashlight" )
 				end
@@ -183,7 +187,7 @@ register_blueprint "human_paladin_sword"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		-- { keywords = { "test" }, weight = 150 },
+		{ keywords = { "test" }, weight = 150 },
 		{ keywords = { "io", "former", "former4", "civilian" }, weight = 150, },
 		{ { "soldier4", "soldier4", "human_paladin_machete" }, keywords = { "io", "former", "former4", "civilian" }, weight = 150, dmin = 17},
 	},
@@ -193,10 +197,14 @@ register_blueprint "human_paladin_sword"
 	},
 	callbacks = {
 		on_create = [=[
-			function( self, level )
+			function( self, level, tier )
 				self:attach( "paladin_shield2" )
 				self.data.shield_buff = self:attach( "paladin_shield_protection" )
-				self:attach( "katana" )
+				if tier > 1 then
+					make_weapon_entry( self, { "adv_katana", tier = tier - 1 } )
+				else
+					self:attach( "katana" )
+				end
 				self:attach( "security_light_armor" )
 				if level.level_info.low_light then
 					self:attach( "npc_flashlight" )
@@ -226,7 +234,7 @@ register_blueprint "human_paladin_chainsaw"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		-- { keywords = { "test" }, weight = 150 },
+		{ keywords = { "test" }, weight = 150 },
 		{ keywords = { "io", "beyond", "dante", "former", "former3", "civilian" }, weight = 100, dmin = 19, },	
 		{ { "guard3", "guard3", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian", "pack" }, weight = 100, dmin = 21, },		
 	},
@@ -236,11 +244,15 @@ register_blueprint "human_paladin_chainsaw"
 	},
 	callbacks = {
 		on_create = [=[
-			function( self, level )
+			function( self, level, tier )
 				self:attach( "paladin_shield3" )
 				self.data.shield_buff = self:attach( "paladin_shield_protection" )
 				self:attach( "security_heavy_armor" )
-				self:attach( "chainsaw" )
+				if tier > 1 then
+					make_weapon_entry( self, { "adv_chainsaw", tier = tier - 1 } )
+				else
+					self:attach( "chainsaw" )
+				end
 				if level.level_info.low_light then
 					self:attach( "npc_flashlight" )
 				end
