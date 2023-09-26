@@ -140,8 +140,7 @@ register_blueprint "human_paladin_machete"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		{ keywords = { "test" }, weight = 150 },
-		-- { { "guard2", "guard2", "human_paladin_machete" }, keywords = { "test" }, weight = 150 },
+		{ keywords = { "test3" }, weight = 150 },
 		{ { "human_paladin_machete", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian" }, weight = 150, },
 		{ { "guard2", "guard2", "guard2", "guard2", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian", "pack" }, weight = 150, dmin = 10 },
 	},
@@ -176,6 +175,9 @@ register_blueprint "human_paladin_machete"
 		}
 	},
 	data = {
+		nightmare = {
+			id   = "human_exalted_paladin",
+		},
 		ai = {
 			cover = false,
 		},		
@@ -187,7 +189,7 @@ register_blueprint "human_paladin_sword"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		{ keywords = { "test" }, weight = 150 },
+		{ keywords = { "test3" }, weight = 150 },
 		{ { "human_paladin_sword", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 150, },
 		{ { "soldier4", "soldier4", "soldier4", "soldier4", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 150, dmin = 17},
 	},
@@ -223,6 +225,9 @@ register_blueprint "human_paladin_sword"
 		},
 	},
 	data = {
+		nightmare = {
+			id   = "human_exalted_paladin",
+		},
 		ai = {
 			cover = false,
 		},
@@ -234,7 +239,7 @@ register_blueprint "human_paladin_chainsaw"
 	blueprint = "zombie",
 	lists = {
 		group    = "being",
-		{ keywords = { "test" }, weight = 150 },
+		{ keywords = { "test3" }, weight = 150 },
 		{ { "human_paladin_chainsaw", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian" }, weight = 100, dmin = 19, },	
 		{ { "guard3", "guard3", "guard3", "guard3", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian", "pack" }, weight = 100, dmin = 21, },		
 	},
@@ -270,8 +275,69 @@ register_blueprint "human_paladin_chainsaw"
 		},
 	},
 	data = {
+		nightmare = {
+			id   = "human_exalted_paladin",
+		},
 		ai = {
 			cover = false,
 		},
 	},
+}
+
+register_blueprint "human_exalted_paladin"
+{
+	blueprint = "zombie",
+	lists = {
+		group = "exalted",
+		{ keywords = { "test3" }, weight = 150 },
+	},
+	text = {
+		name      = "exalted paladin",
+		namep     = "exalted paladins",
+	},
+	ascii     = {
+		glyph     = "h",
+		color     = LIGHTBLUE,
+	},
+	desc = {},
+	callbacks = {
+		on_create = [=[
+		function( self, level, tier )
+			self:attach( "paladin_shield3" )
+			self.data.shield_buff = self:attach( "paladin_shield_protection" )
+			make_weapon( self, level, { 
+				{ "machete", nil, nil, weight = 2, max_depth = 17, },
+				{ "axe", nil, nil, weight = 2, min_depth = 13, max_depth = 20, },
+				{ "katana", nil, nil, weight = 2, min_depth = 17, },
+				{ "chainsaw", nil, nil, weight = 2, min_depth = 19, },
+			})
+			if level.level_info.low_light then
+					self:attach( "npc_flashlight" )
+			end
+			if tier > 1 then
+				make_exalted( self, tier, self.data.exalted_traits )
+			end
+		end
+		]=],
+	},
+	data = {
+		nightmare      = false,
+		exalted_traits = {
+			{ "exalted_kw_resilient", tag = "health" },
+			{ "exalted_kw_resist", min = 12, },
+			{ "exalted_kw_accurate", },
+			{ "exalted_kw_armored", },
+			{ "exalted_kw_fast", min = 12, },
+			{ "exalted_kw_regenerate", tag = "health", min = 14, },
+			{ "exalted_kw_hunter", min = 10, },
+			{ "exalted_kw_lethal", tag = "damage" },
+		},
+	},
+	attributes = {
+		accuracy         = 0,
+		health           = 60,
+		speed            = 0.95,
+		experience_value = 100,
+	},
+	inventory = {},
 }

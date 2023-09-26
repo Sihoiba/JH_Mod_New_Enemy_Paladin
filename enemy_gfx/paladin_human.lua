@@ -369,3 +369,27 @@ register_gfx_blueprint "human_paladin_chainsaw"
 	"pf_security_purse",
 	"pf_security_body_ABC",
 }
+
+register_gfx_blueprint "human_exalted_paladin"
+{
+	blueprint = "security_base",
+	style = {
+		materials = {
+			security_shoulders  = "data/texture/security/C/security_shoulders",
+			security_purse      = "data/texture/security/C/security_purse",
+			security_helmet     = "data/texture/security/C/security_helmet",
+			security_body_A     = "data/texture/security/C/security_body_A",
+			security_body_B     = "data/texture/security/C/security_body_B",
+			security_body_C     = "data/texture/security/C/security_body_C",
+		},
+	},
+	light = {
+		position    = vec3(0,0.1,0),
+		color       = vec4(1.5,0.75,2.25,1.0),
+		range       = 1.5,
+	},
+	"pf_security_helmet",
+	"pf_security_shoulders",
+	"pf_security_purse",
+	"pf_security_body_ABC",
+}
