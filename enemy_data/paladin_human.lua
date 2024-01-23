@@ -141,8 +141,8 @@ register_blueprint "human_paladin_machete"
     lists = {
         group    = "being",
         { keywords = { "test3" }, weight = 150 },
-        { { "human_paladin_machete", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian" }, weight = 150, },
-        { { "guard2", "guard2", "guard2", "guard2", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian", "pack" }, weight = 150, dmin = 10 },
+        { { "human_paladin_machete", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian" }, weight = 125, },
+        { { "guard2", "guard2", "guard2", "guard2", "human_paladin_machete" }, keywords = { "europa", "former", "former2", "civilian", "pack" }, weight = 75, dmin = 10 },
     },
     text = {
         name      = "corrupted paladin",
@@ -190,8 +190,8 @@ register_blueprint "human_paladin_sword"
     lists = {
         group    = "being",
         { keywords = { "test3" }, weight = 150 },
-        { { "human_paladin_sword", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 150, },
-        { { "soldier4", "soldier4", "soldier4", "soldier4", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 150, dmin = 17},
+        { { "human_paladin_sword", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 100, },
+        { { "soldier4", "soldier4", "soldier4", "soldier4", "human_paladin_sword" }, keywords = { "io", "former", "former4", "civilian" }, weight = 50, dmin = 17},
     },
     text = {
         name      = "former CRI paladin",
@@ -240,8 +240,8 @@ register_blueprint "human_paladin_chainsaw"
     lists = {
         group    = "being",
         { keywords = { "test3" }, weight = 150 },
-        { { "human_paladin_chainsaw", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian" }, weight = 100, dmin = 19, },
-        { { "guard3", "guard3", "guard3", "guard3", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian", "pack" }, weight = 100, dmin = 21, },
+        { { "human_paladin_chainsaw", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian" }, weight = 75, dmin = 19, },
+        { { "guard3", "guard3", "guard3", "guard3", "human_paladin_chainsaw" }, keywords = { "io", "beyond", "dante", "former", "former3", "civilian", "pack" }, weight = 50, dmin = 21, },
     },
     text = {
         name      = "hellish paladin",
