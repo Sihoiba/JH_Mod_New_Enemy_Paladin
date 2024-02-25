@@ -340,11 +340,16 @@ register_blueprint "human_exalted_paladin"
     data = {
         nightmare      = false,
         exalted_traits = {
-            { "exalted_kw_resilient", tag = "health" },
-            { "exalted_kw_resist", min = 12, },
             { "exalted_kw_accurate", },
             { "exalted_kw_armored", },
+            { "exalted_kw_resilient",                    tag = "health" },
+            { "exalted_kw_resist",             min = 8,  tag = "resist", },
+            { "exalted_kw_immune",             min = 16, tag = "resist", },
             { "exalted_kw_regenerate", tag = "health", min = 14, },
+            { "exalted_kw_regenerate",         min = 14, tag = "health", },
+            { "exalted_kw_gatekeeper",         min = 15, tag = "health", req = "norespawn" },
+            { "exalted_kw_adaptive",           min = 18, },
+            { "exalted_kw_beholder",           min = 21, tag = "health", },
             { "exalted_kw_paladin_hunter", min = 10, },
         },
     },
